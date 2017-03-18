@@ -13,10 +13,21 @@
 using namespace cv;
 using namespace std;
 
-#pragma comment(lib,"opencv_core231d.lib")  
+//#pragma comment(lib,"opencv_core231d.lib")
+void testsift1();
+int testsift2();
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	//testsift2();
+    testsift1();
+	waitKey(0);    
+	return 0;
+}
+
+int testsift2()
+{
+
 	const char* imagename1 = "..\\img\\1.jpg";
 	const char* imagename2 = "..\\img\\2.jpg";
 
@@ -40,11 +51,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	//-- Show detected (drawn) keypoints    
 	imshow("Keypoints 1", img_keypoints_1 );    
 	imshow("Keypoints 2", img_keypoints_2 );    
-	waitKey(0);    
-	return 0;   
+}
 
-	/*Mat input1=imread(imagename1,1);
-	Mat input2=imread(imagename2,1);
+void testsift1()
+{
+	Mat input1=imread("..\\img\\1.jpg",1);
+	Mat input2=imread("..\\img\\2.jpg",1);
 	SiftFeatureDetector detector;
 	vector<KeyPoint> keypoint1,keypoint2;
 	detector.detect(input1,keypoint1);
@@ -76,7 +88,5 @@ int _tmain(int argc, _TCHAR* argv[])
 	imshow("matches",img_matches);
 	imwrite("matches.jpg",img_matches);
 
-	waitKey();*/
-	return 0;
+	
 }
-
